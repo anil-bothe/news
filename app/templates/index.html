@@ -5,14 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .myFont {
+            font-family: monospace;
+            font-size: 30px;
+            color: blueviolet;
+        }
+    </style>
 </head>
 <body>
     <p>Homepage</p>
-    <ul>
-        <li><a href="/">Home page</a></li>
-        <li><a href="/about">About page</a></li>
-        <li><a href="/contact">Contact page</a></li>
-        <li><a href="/faqs">faqs page</a></li>
+ 
+    <p>
+        {{data}}
+    </p>
+
+    <ul style="list-style-type: disc;">
+       
+        {% for item in data %}
+                 <li {% if item.age == 15 %}class="myFont"{% endif %}>{{item.name}}, {{item.age}}</li>            
+        {% endfor %}
+
     </ul>
+
 </body>
 </html>
