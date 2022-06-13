@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,28 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
     <style>
-        .myFont {
-            font-family: monospace;
-            font-size: 30px;
-            color: blueviolet;
+        .container {
+            margin: 20px 200px;
+        }
+        .container .card {
+            background-color: #e6e6e6;
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            column-gap: 20px;
+        }
+        .container .card  .img{
+            width: 100%;
+            height: 200px;
+            background-image: linear-gradient(to right, red, blueviolet);
+        }
+        .card .details {
+            padding: 10px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
-    <p>Homepage</p>
- 
-    <p>
-        {{data}}
-    </p>
-
-    <ul style="list-style-type: disc;">
-       
-        {% for item in data %}
-                 <li {% if item.age == 15 %}class="myFont"{% endif %}>{{item.name}}, {{item.age}}</li>            
-        {% endfor %}
-
+  <nav class="navbar">
+    <ul>
+        <li style="width: 72%;display: flex;">
+            <img src="{% static 'img/Union.png' %}" width="50" alt=""><a class="brand" style="font-weight: 700; font-size: 25px" href="/">NEWS</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact us</a></li>
+        <li><a href="/faqs">FAQs</a></li>
     </ul>
+  </nav>
 
+  <div class="container">
+    
+    <div class="card">
+        <div class="img">
+            <img src="{% static 'img/union.png' %}" alt="">
+        </div>
+        <div class="details">
+            <h2>Heading</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates aut esse consequatur id aliquid natus soluta, nihil maiores possimus veniam aperiam eligendi unde ratione beatae fugit dolorum! Doloribus, et sed.</p>
+            <div class="group_button">
+                <button>details</button>
+                <button>more</button>
+            </div>
+        </div>
+    </div>
+
+  </div>
 </body>
 </html>
