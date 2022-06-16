@@ -7,8 +7,8 @@ from app.views import about, contact, faqs, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", home),
-    path("about/", about),
-    path("faqs/", faqs),
-    path("contact/", contact),
+    path("", home, name="home"),
+    path("adsfalkjasd kfjaslkd fjalsdkjf laskjdflk asjdfl aldkfj lasdkjf laksdjfla ksdflk jasldkfj lasdkjf/", about, name='about'),
+    path("fsdfaqasdfs/", faqs, name="faqs"),
+    path("asdf/", contact, name="contact"),
 ]

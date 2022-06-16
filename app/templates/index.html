@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,56 +9,71 @@
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <style>
-        .container {
-            margin: 20px 200px;
-        }
-        .container .card {
-            background-color: #e6e6e6;
-            display: grid;
-            grid-template-columns: 1fr 4fr;
-            column-gap: 20px;
-        }
-        .container .card  .img{
-            width: 100%;
-            height: 200px;
-            background-image: linear-gradient(to right, red, blueviolet);
-        }
-        .card .details {
-            padding: 10px auto;
+        footer {
+            padding: 20px;
+            background-color: black;
+            left: 50%;
             display: flex;
-            flex-direction: column;
             gap: 20px;
-            justify-content: center;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style-type: none;
+            flex-grow: 1;
+            justify-content: end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links * a {
+            color: aqua;
         }
     </style>
 </head>
-<body>
-  <nav class="navbar">
-    <ul>
-        <li style="width: 72%;display: flex;">
-            <img src="{% static 'img/Union.png' %}" width="50" alt=""><a class="brand" style="font-weight: 700; font-size: 25px" href="/">NEWS</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact us</a></li>
-        <li><a href="/faqs">FAQs</a></li>
-    </ul>
-  </nav>
 
-  <div class="container">
-    
-    <div class="card">
-        <div class="img">
-            <img src="{% static 'img/union.png' %}" alt="">
-        </div>
-        <div class="details">
-            <h2>Heading</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates aut esse consequatur id aliquid natus soluta, nihil maiores possimus veniam aperiam eligendi unde ratione beatae fugit dolorum! Doloribus, et sed.</p>
-            <div class="group_button">
-                <button>details</button>
-                <button>more</button>
+<body>
+
+    {% include "includes/navbar.html" %}
+
+    <!-- main -->
+    <div class="container">
+        {% if data %}
+            {% for item in data %}
+                <div class="card">
+                    <div class="img"></div>
+                    <div class="details">
+                        <h2>{{item.title}}</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates aut esse consequatur id aliquid
+                            natus soluta, nihil maiores possimus veniam aperiam eligendi unde ratione beatae fugit dolorum!
+                            Doloribus, et sed.</p>
+                        <div class="group_button">
+                            <button class="btn1">details</button>
+                            <button class="btn2">more</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+        <div class="card">
+            <div class="img"></div>
+            <div class="details">
+                <h2>{{msg}}</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates aut esse consequatur id aliquid
+                    natus soluta, nihil maiores possimus veniam aperiam eligendi unde ratione beatae fugit dolorum!
+                    Doloribus, et sed.</p>
+                <div class="group_button">
+                    <button class="btn1">details</button>
+                    <button class="btn2">more</button>
+                </div>
             </div>
         </div>
+        {% endif %}
+
+
     </div>
 
-  </div>
+    {% include "includes/footer.html" %}
 </body>
+
 </html>

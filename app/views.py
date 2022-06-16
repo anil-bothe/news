@@ -1,24 +1,23 @@
 from django.shortcuts import render
+import requests
+
+from utility.constants import ENDPOINT
+
 
 def home(request):
-    context = {
-        "data": [
-            {
-                "name": "anil",
-                "age": 26
-            },
-            {
-                "name": "Sunil",
-                "age": 46
-            },
-            {
-                "name": "Sanju",
-                "age": 15
-            },
-        ]
-    }
+    try:
+        response = requests.get(ENDPOINT)
 
-    return render(request, "index.html", context)
+        if response.status_code == 200:
+            dict_output = response.json() 
+            all_news_items = dict_output["channel"]["item"]
+            return render(request, "index.html", {
+                "data": all_news_items
+            })
+
+        return render(request, "index.html", {"msg": "URL not succeed!"})
+    except:
+        return render(request, "index.html", {"msg": "URL not working"})
 
 def contact(request):
     return render(request, "contact.html")

@@ -6,19 +6,75 @@
 }
 .navbar {
     background-color: #d9d9d9;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
 }
-.navbar ul {
+
+.nav-list {
     list-style-type: none;
     display: flex;
+    flex-grow: 1;
     justify-content: end;
+    align-items: center;
+    gap: 20px
 }
-.navbar ul li {
-    padding: 40px 20px 20px 20px;
-}
-.navbar ul li a{
-    padding: 10px;
-    font-size: 20px;
-    font-weight: 200;
-    color: #000;
+
+.nav-list li a {
     text-decoration: none;
 }
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand a{
+    text-decoration: none;
+}
+
+/* cards */
+
+.container {
+    margin: 20px 200px;
+}
+
+.container .card {
+    background-color: #e6e6e6;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    column-gap: 20px;
+    margin-bottom: 10px;
+}
+
+.container .card .img {
+    width: 300px;
+    height: 190px;
+    background-image: url("https://th.bing.com/th/id/R.2d9fb6d88ed78c7da245998c3fef240c?rik=6yIVQd2X8PjSEg&riu=http%3a%2f%2fwww.wallpapers13.com%2fwp-content%2fuploads%2f2016%2f01%2fSunset-Background-Images-Hd-Sunset-background-images-hd-07329.jpg&ehk=7J99b98IPCvu0KnLxFH6gC%2bV%2b%2fcnD3GpSnjHO%2fJcNWE%3d&risl=&pid=ImgRaw&r=0");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card .details {
+    padding: 10px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+.btn1, .btn2 {
+    padding: 10px 20px;
+    background-color: #919191;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+.btn1:hover, .btn2:hover {
+    background-color: #707070;
+}
+
+
+
